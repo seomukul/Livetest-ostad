@@ -1,0 +1,8 @@
+<link rel="stylesheet" href="https://matcha.mizu.sh/matcha.css">
+<h1>Edit Contact</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+<a href="{% url 'contact_list' %}">Back to List</a>

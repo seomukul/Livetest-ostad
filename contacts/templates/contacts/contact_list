@@ -1,0 +1,4 @@
+def contact_list(request):
+    query = request.GET.get('q', '')
+    contacts = Contact.objects.filter(first_name__icontains=query) | Contact.objects.filter(email__icontains=query)
+    return render(request, 'contacts/contact_list.html', {'contacts': contacts, 'query': query})

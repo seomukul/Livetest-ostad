@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="https://matcha.mizu.sh/matcha.css">
+
+<h1>{{ contact.first_name }} {{ contact.last_name }}</h1>
+<p>Email: {{ contact.email }}</p>
+<p>Phone: {{ contact.phone_number }}</p>
+<p>Address: {{ contact.address }}</p>
+<a href="{% url 'edit_contact' contact.pk %}">Edit</a>
+<form method="POST" action="{% url 'delete_contact' contact.pk %}">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+</form>
+<a href="{% url 'contact_list' %}">Back to List</a>
